@@ -30,13 +30,20 @@ li::before {
   vertical-align: top;
 }
 .col-40 {
-  background: #FFF;
+  background: rgb(247, 177, 49);
   padding: 30px;
   color: #000;
 }
 
 .col-60 {
   background: #E84A5F;
+  height:600px;
+  width:600px;
+}
+
+.piezasJuego{
+  height: 300px;
+  width: 300px;
 
 }
 
