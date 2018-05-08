@@ -33,17 +33,30 @@ li::before {
   background: rgb(247, 177, 49);
   padding: 30px;
   color: #000;
+
 }
 
 .col-60 {
   background: #E84A5F;
-  height:600px;
-  width:600px;
 }
 
+#juego{
+  height:900px;
+  width:900px;
+}
+
+.piezasJuego img {
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+}
+
+
 .piezasJuego{
-  height: 300px;
-  width: 300px;
+  float: left;
+  height: 33.3%;
+  width: 33.3%;
+  /*border: 1px solid black;*/
 
 }
 
