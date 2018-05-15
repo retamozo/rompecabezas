@@ -1,5 +1,5 @@
 // Arreglo que contiene las intrucciones del juego
-var instrucciones = ["arriba","derecha","abajo","izquierda"];
+var instrucciones = ["asdasda","derecha","abajo","izquierda"];
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 
@@ -23,7 +23,7 @@ Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
     //COMPLETAR
     for (var i = 0; i < instrucciones.length; i++){
-      console.log(instrucciones[i]);
+      mostrarInstruccionEnLista(instrucciones[i]),"listainstrucciones");
     }
 }
 
