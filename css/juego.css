@@ -15,7 +15,7 @@ li {
   animation: fadein 5s;
 }
 li::before {
-  content: "â€¢ ";
+  content: "• ";
   color: #EC6778;
 }
 
@@ -59,9 +59,12 @@ background-color: rgb(247, 70, 90);
 
 .col-60 {
   background: #E84A5F;
+
 }
 
 .piezasJuego img {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
   height: 100%;
   width: 100%;
@@ -72,10 +75,8 @@ background-color: rgb(247, 70, 90);
 
 .piezasJuego{
   float: left;
-  height: 33.33%;
-  width: 33.33%;
-
-
+  height: 100%;
+  width: 100%;
 }
 
 #flecha{
@@ -86,9 +87,22 @@ background-color: rgb(247, 70, 90);
   text-align: center;
 }
 
+#juego {
+  background-color: red;
+  border: 1px solid green;
+  animation: fadein 2s;
+  margin: auto;
+  width: 641px;
+  height: 641px;
+}
+
 #juego div {
   text-align: center;
   animation: fadein 2s;
+  width: 33.3%;
+  height: 33.3%;
+  float: left;
+
 }
 #footer{
   display: inline-block;

@@ -93,7 +93,7 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
   //COMPLETAR
-  if ((fila >= 0 && fila <= 2) && (columna <= 2 && columna >= 0)) {
+  if ((fila >=0 && fila <=2) && (columna <=2 && columna >=0)) {
     return true;
   }
   else {
