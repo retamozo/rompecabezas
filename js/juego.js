@@ -1,3 +1,4 @@
+// TP ROMPECABEZAS ! 
 // Arreglo que contiene las intrucciones del juego
 var instrucciones = ['Deberás usar las flechas para mover las piezas','Las piezas deben coincidir con la imagen miniatura debajo'];
 // Arreglo para ir guardando los movimientos que se vayan realizando
@@ -22,25 +23,23 @@ Esta posición comienza siendo la [2, 2]*/
 var filaVacia = 2;
 var columnaVacia = 2;
 
-/* Esta función deberá recorrer el arreglo de instrucciones pasado por parámetro.
-Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-instrucciones'.
-Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
-Podés ver su implementación en la ultima parte de este codigo. */
-//COMPLETAR
+/* Esta función  recorre el arreglo de instrucciones pasado por parámetro.
+Cada elemento de este arreglo es  mostrado en la lista con id 'lista-instrucciones'.
+Para eso deberás uso la función mostrarInstruccionEnLista(). */
+
 function mostrarInstrucciones(instrucciones) {
   for (var i = 0; i < instrucciones.length; i++){
     mostrarInstruccionEnLista(instrucciones[i],'listaInstrucciones');
   }
 }
 
-/* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
+/* función que agrega la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
 function mostrarUltimoMovimiento(direccion) {
   movimientos.push(direccion) ;
   actualizarUltimoMovimiento(direccion);
 }
-/* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora.
-Existen diferentes formas de hacer este chequeo a partir de la grilla. */
+/* Esta función  chequea si el Rompecabezas esta en la posicion ganadora. */
 function chequearSiGano() {
   for ( var i = 0; i < grilla.length; i++){
     for ( var j = 0; j < grilla[i].length; j++){
@@ -52,7 +51,7 @@ function chequearSiGano() {
   return true;
 }
 
-// Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
+// cartelillo que avisa si ganaste
 function mostrarCartelGanador() {
   if (chequearSiGano() === true){
     alert("Ganaste");
@@ -61,18 +60,17 @@ function mostrarCartelGanador() {
 
 
 /* Función que intercambia dos posiciones en la grilla.
-Pensar como intercambiar dos posiciones en un arreglo de arreglos.
 Para que tengas en cuenta:
-Si queremos intercambiar las posiciones [1,2] con la [0, 0], si hacemos:
+Si querés intercambiar las posiciones [1,2] con la [0, 0], si hacemos:
 arreglo[1][2] = arreglo[0][0];
 arreglo[0][0] = arreglo[1][2];
 
 En vez de intercambiar esos valores vamos a terminar teniendo en ambas posiciones el mismo valor.
-Se te ocurre cómo solucionar esto con una variable temporal?
+Por eso creo variables temporales
 */
 
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-  //COMPLETAR
+
   var gTemporal = grilla[filaPos1][columnaPos1];
   grilla[filaPos1][columnaPos1] = grilla[filaPos2][columnaPos2];
   grilla[filaPos2][columnaPos2] = gTemporal;
@@ -92,7 +90,7 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-  //COMPLETAR
+
   if ((fila >=0 && fila <=2) && (columna <=2 && columna >=0)) {
     return true;
   }
@@ -133,30 +131,23 @@ function moverEnDireccion(direccion) {
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia.
-  Para que esta parte del código funcione correctamente deberás haber implementado
+  Para que esta parte del código funcione correctamente implementé
   las funciones posicionValida, intercambiarPosicionesGrilla y actualizarPosicionVacia */
 
   if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
     intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
     actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
     actualizarUltimoMovimiento(direccion);
-    //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
-
 
   }
 }
 
 
 //////////////////////////////////////////////////////////
-////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
-/////////NO TOCAR A MENOS QUE SEPAS LO QUE HACES//////////
+/////////NO TOCAR A MENOS QUE SEPAS LO QUE HACES
+//////////ESTAS FUNCIONES HACEN QUE FUNQUE EL
+////////////// ROMPECABEZAS!!!!!!//////////
 //////////////////////////////////////////////////////////
-
-/* Las funciones y variables que se encuentran a continuación ya están implementadas.
-No hace falta que entiendas exactamente que es lo que hacen, ya que contienen
-temas aún no vistos. De todas formas, cada una de ellas tiene un comentario
-para que sepas que se está haciendo a grandes rasgos. NO LAS MODIFIQUES a menos que
-entiendas perfectamente lo que estás haciendo! */
 
 /* codigosDireccion es un objeto que te permite reemplazar
 el uso de números confusos en tu código. Para referirte a la dir
@@ -170,7 +161,7 @@ var codigosDireccion = {
 }
 
 /* Funcion que realiza el intercambio logico (en la grilla) y ademas actualiza
-el intercambio en la pantalla (DOM). Para que funcione debera estar implementada
+el intercambio en la pantalla (DOM). Para que funcione debera estÁ implementada
 la funcion intercambiarPosicionesGrilla() */
 function intercambiarPosiciones(fila1, columna1, fila2, columna2) {
   // Intercambio posiciones en la grilla
@@ -250,11 +241,7 @@ function mezclarPiezas(veces) {
   }, 100);
 }
 
-/* capturarTeclas: Esta función captura las teclas presionadas por el usuario. Javascript
-permite detectar eventos, por ejemplo, cuando una tecla es presionada y en
-base a eso hacer algo. No es necesario que entiendas como funciona esto ahora,
-en el futuro ya lo vas a aprender. Por ahora, sólo hay que entender que cuando
-se toca una tecla se hace algo en respuesta, en este caso, un movimiento */
+/* capturarTeclas: Esta función captura las teclas presionadas por el usuarioS */
 function capturarTeclas() {
   document.body.onkeydown = (function(evento) {
     if (evento.which === codigosDireccion.ABAJO ||
@@ -287,6 +274,4 @@ function capturarTeclas() {
     mezclarPiezas(30);
     capturarTeclas();
   }
-
-  // Ejecutamos la función iniciar
   iniciar();
